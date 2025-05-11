@@ -12,17 +12,26 @@
     :root {
       --primary:#2d6cdf;
       --dark:#0d1d40;
-      --light:#f4f7fe;
+      --light:#fcf9f7;
       --accent:#14b8a6; /* teal accent */
     }
 
     *{box-sizing:border-box;scroll-behavior:smooth;}
     body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
 
-    /* ===== HERO / HEADER ===== */
-    header{background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;padding:100px 20px 120px;text-align:center;clip-path:ellipse(110% 100% at 50% 0);}    
-    header h1{margin:0;font-size:3rem;font-family:'Montserrat',sans-serif;letter-spacing:.5px;}
-    header p{margin:15px auto 0;max-width:720px;font-size:1.15rem;opacity:.95;}
+    /* ===== TOP HEADER (logo + blog) ===== */
+    header{background:var(--light);border-bottom:4px solid var(--accent);}
+    .header-inner{max-width:1100px;margin:auto;padding:26px 20px;display:flex;align-items:center;justify-content:space-between;}
+
+    /* Logo mark inspired by reference */
+    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;text-decoration:none;color:var(--dark);}
+    .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
+    .logo-mark::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85);border-radius:50%;transform:translate(5px,5px);} /* shadow circle */
+    .logo-mark::after{content:"";position:absolute;inset:0;background:var(--accent);border-radius:50%;}
+
+    /* Blog link top right */
+    .blog-link{text-decoration:none;font-weight:700;font-family:'Montserrat',sans-serif;color:var(--dark);font-size:.95rem;border-bottom:2px solid var(--dark);transition:color .25s ease,border-color .25s ease;}
+    .blog-link:hover,.blog-link:focus{color:var(--accent);border-color:var(--accent);}  
 
     /* ===== NAVBAR ===== */
     nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e1e5f2;display:flex;justify-content:center;gap:40px;padding:12px 0 14px;z-index:1000;}
@@ -46,7 +55,7 @@
 
     /* Action button */
     .actions{margin-top:22px;}
-    .btn-linkedin{display:inline-block;background:var(--accent);color:#fff;padding:11px 22px;border-radius:28px;font-weight:600;text-decoration:none;transition:background .3s ease;}
+    .btn-linkedin{display:inline-block;background:var(--accent);color:#fff;padding:11px 24px;border:none;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease;}
     .btn-linkedin:hover,.btn-linkedin:focus{background:#0f9e93;}
 
     /* Highlight chips */
@@ -78,16 +87,23 @@
     @media (prefers-color-scheme:dark){
       body{background:#121723;color:#ccd3e0;}
       nav{background:#1a1f2b;border-color:#1f2633;}
-      header{background:linear-gradient(135deg,var(--dark),#051230);}  
+      header{background:#1a1f2b;border-color:var(--accent);}  
     }
   </style>
 </head>
 <body>
+  <!-- Top header / logo row -->
   <header>
-    <h1>Eric Ebenezer Amprofi Boham</h1>
-    <p>Research Scientist — Global Health &amp; Infectious Diseases | Portfolio for the "Generative AI for Work &amp; Research" course</p>
+    <div class="header-inner">
+      <a href="#about-me" class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">Eric&nbsp;Boham</span>
+      </a>
+      <a href="#" class="blog-link">→ BLOG</a>
+    </div>
   </header>
 
+  <!-- Main nav -->
   <nav>
     <a href="#about-me">About&nbsp;Me</a>
     <a href="#about-course">About&nbsp;the&nbsp;Course</a>
@@ -110,8 +126,7 @@
 
       <!-- Central portrait -->
       <div class="portrait">
-        <!-- Replace src with your photo file name or URL -->
-        <img src="https://placehold.co/280x280?text=Portrait" alt="Portrait of Eric Boham">
+        <img src="https://github.com/eboham/graph-ai-portfolio/blob/main/20220328_142457.jpg?raw=true" alt="Portrait of Eric Boham">
       </div>
 
       <!-- Right big title -->
@@ -192,19 +207,4 @@
       <p class="placeholder">Links will appear here as the course progresses.</p>
       <ol>
         <li>Week&nbsp;1 – Course onboarding (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;2 – Content generation exercise (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;3 – Data analysis automation (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;4 – Literature review with LLMs (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;5 – Custom chatbot demo (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;6 – Workflow automation showcase (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;7 – Outreach &amp; comms assets (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;8 – Capstone project draft (<a href="#">TBD</a>)</li>
-      </ol>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Eric Ebenezer Amprofi Boham · Kumasi, Ghana
-  </footer>
-</body>
-</html>
+        <li>Week&nbsp;2 – Content generation exercise (<a href="#">T
