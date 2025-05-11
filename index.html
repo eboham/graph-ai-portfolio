@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI for Work & Research ‑ Portfolio | Eric Boham</title>
+  <!-- Montserrat for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#2d6cdf;
+      --dark:#0d1d40;
+      --light:#f4f7fe;
+      --accent:#14b8a6; /* teal accent */
+    }
+
+    *{box-sizing:border-box;scroll-behavior:smooth;}
+    body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
+
+    /* ===== HERO / HEADER ===== */
+    header{background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;padding:100px 20px 120px;text-align:center;clip-path:ellipse(110% 100% at 50% 0);}    
+    header h1{margin:0;font-size:3rem;font-family:'Montserrat',sans-serif;letter-spacing:.5px;}
+    header p{margin:15px auto 0;max-width:720px;font-size:1.15rem;opacity:.95;}
+
+    /* ===== NAVBAR ===== */
+    nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e1e5f2;display:flex;justify-content:center;gap:40px;padding:12px 0 14px;z-index:1000;}
+    nav a{text-decoration:none;color:var(--dark);font-weight:600;font-size:1rem;font-family:'Montserrat',sans-serif;transition:color .25s ease;}
+    nav a:hover,nav a:focus{color:var(--accent);}    
+
+    /* ===== SECTIONS ===== */
+    section{padding:80px 20px;}
+    .container{max-width:1100px;margin:auto;}
+    h2{margin-top:0;font-size:2rem;color:var(--primary);font-family:'Montserrat',sans-serif;}
+    h3{font-family:'Montserrat',sans-serif;}
+
+    /* ===== ABOUT HERO LAYOUT ===== */
+    .about-hero .hero-grid{display:flex;align-items:center;gap:60px;}
+    .hero-grid .intro{flex:1;max-width:320px;border-bottom:1px dotted var(--dark);padding-bottom:24px;}
+    .hero-grid .portrait{position:relative;flex:0 0 280px;}
+    .hero-grid .portrait::after{content:"";position:absolute;inset:-24px;z-index:-1;background:rgba(0,0,0,.85);border-radius:50%;}
+    .hero-grid .portrait img{display:block;width:280px;height:280px;object-fit:cover;border-radius:50%;border:6px solid #fff;}
+    .hero-grid .title{flex:1;}
+    .hero-grid .title h2{font-size:2.8rem;line-height:1.05;margin:0;font-family:'Montserrat',sans-serif;color:var(--dark);}    
+
+    /* Action button */
+    .actions{margin-top:22px;}
+    .btn-linkedin{display:inline-block;background:var(--accent);color:#fff;padding:11px 22px;border-radius:28px;font-weight:600;text-decoration:none;transition:background .3s ease;}
+    .btn-linkedin:hover,.btn-linkedin:focus{background:#0f9e93;}
+
+    /* Highlight chips */
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;}
+    .chip{background:var(--accent);color:#fff;font-size:.82rem;padding:7px 14px;border-radius:24px;font-weight:600;}
+
+    /* Course modules */
+    .module{margin-bottom:28px;}
+    .module h3{margin:0 0 4px;font-size:1.15rem;color:var(--dark);}    
+
+    /* Submissions list */
+    .submissions ol{padding-left:22px;margin:0;}
+    .placeholder{color:#6b7280;font-style:italic;}
+
+    /* ===== UTILITIES ===== */
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);}    
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      .about-hero .hero-grid{flex-direction:column;text-align:center;gap:40px;}
+      .hero-grid .intro{border:none;max-width:600px;padding:0;}
+      .hero-grid .title h2{font-size:2.2rem;}
+    }
+
+    /* ===== FOOTER ===== */
+    footer{background:#fff;border-top:1px solid #e1e5f2;text-align:center;padding:30px 10px;font-size:.85rem;color:#555;}
+
+    /* ===== DARK MODE ===== */
+    @media (prefers-color-scheme:dark){
+      body{background:#121723;color:#ccd3e0;}
+      nav{background:#1a1f2b;border-color:#1f2633;}
+      header{background:linear-gradient(135deg,var(--dark),#051230);}  
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Eric Ebenezer Amprofi Boham</h1>
+    <p>Research Scientist — Global Health &amp; Infectious Diseases | Portfolio for the "Generative AI for Work &amp; Research" course</p>
+  </header>
+
+  <nav>
+    <a href="#about-me">About&nbsp;Me</a>
+    <a href="#about-course">About&nbsp;the&nbsp;Course</a>
+    <a href="#submissions">Weekly&nbsp;Submissions</a>
+  </nav>
+
+  <!-- ================= ABOUT ME HERO ================= -->
+  <section id="about-me" class="about-hero">
+    <div class="container hero-grid">
+      <h2 class="visually-hidden">About Me</h2>
+      <!-- Left intro column -->
+      <div class="intro">
+        <p>I am a Ghanaian molecular medicine researcher with <strong>close to a decade of clinical‑research experience</strong>. Currently, I am pursuing a PhD at the University of Sapienza while collaborating on <strong>Plasmodium&nbsp;falciparum gametocyte and bone‑marrow micro‑environment</strong> research in partnership with the LITD Lab at KNUST and the Alano Lab&nbsp;(ISS).</p>
+        <p>I previously served as a Research Assistant at the Kumasi Centre for Collaborative Research in Tropical Medicine, contributing to multicountry studies on SARS‑CoV‑2, dengue and meningitis.</p>
+
+        <div class="actions">
+          <a class="btn-linkedin" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Central portrait -->
+      <div class="portrait">
+        <!-- Replace src with your photo file name or URL -->
+        <img src="https://placehold.co/280x280?text=Portrait" alt="Portrait of Eric Boham">
+      </div>
+
+      <!-- Right big title -->
+      <div class="title">
+        <h2>Eric<br>Ebenezer<br>Boham</h2>
+      </div>
+    </div>
+
+    <!-- Skill chips below hero -->
+    <div class="container">
+      <div class="chips">
+        <span class="chip">Project Management</span>
+        <span class="chip">Scientific Writing</span>
+        <span class="chip">Flow Cytometry</span>
+        <span class="chip">Data Analysis (R)</span>
+        <span class="chip">Good Clinical &amp; Laboratory Practice</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT COURSE ================= -->
+  <section id="about-course" style="background:#fff;">
+    <div class="container">
+      <h2>About the Course</h2>
+      <p>Generative AI for Work &amp; Research is a hands‑on programme covering practical AI tools and workflows. The curriculum spans content creation, automated data analysis, literature review, chatbot development, workflow automation, communication assets and a culminating capstone project.</p>
+      <div class="module">
+        <h3>Documents, Presentations &amp; Websites</h3>
+        <ul>
+          <li>Generate high‑quality text and web content.</li>
+          <li>LLM fundamentals, Markdown, no‑code sites.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>Automated Data Analysis</h3>
+        <ul>
+          <li>AI‑powered data cleaning, visualization &amp; reporting.</li>
+          <li>Tools: ChatGPT Code Interpreter, Julius, Windsurf.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>GenAI for Research &amp; Text Analysis</h3>
+        <ul>
+          <li>Literature search, summarization &amp; sentiment analysis.</li>
+          <li>Tools: Elicit, LiteRev, custom LLM pipelines.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>Custom GPTs &amp; Chatbots</h3>
+        <ul>
+          <li>RAG systems, Botpress workflows, API integrations.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>AI Workflows for Task Automation</h3>
+        <ul>
+          <li>Lindy and Make.com for email &amp; admin task automation.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>GenAI for Communication &amp; Outreach</h3>
+        <ul>
+          <li>Create visual &amp; multimedia assets for public engagement.</li>
+        </ul>
+      </div>
+      <div class="module">
+        <h3>Capstone Project &amp; Showcase</h3>
+        <ul>
+          <li>Design and pitch a real‑world AI solution.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUBMISSIONS ================= -->
+  <section id="submissions" class="submissions">
+    <div class="container">
+      <h2>My Weekly&nbsp;Submissions</h2>
+      <p class="placeholder">Links will appear here as the course progresses.</p>
+      <ol>
+        <li>Week&nbsp;1 – Course onboarding (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;2 – Content generation exercise (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;3 – Data analysis automation (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;4 – Literature review with LLMs (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;5 – Custom chatbot demo (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;6 – Workflow automation showcase (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;7 – Outreach &amp; comms assets (<a href="#">TBD</a>)</li>
+        <li>Week&nbsp;8 – Capstone project draft (<a href="#">TBD</a>)</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Eric Ebenezer Amprofi Boham · Kumasi, Ghana
+  </footer>
+</body>
+</html>
