@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generative AI for Work & Research ‑ Portfolio | Eric E. Boham</title>
+  <title>Generative AI for Work & Research ‑ Portfolio | Eric Boham</title>
   <!-- Montserrat for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,12 @@
     body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
 
     /* ===== TOP HEADER (logo + blog) ===== */
-    header{background:var(--light);border-bottom:4px solid var(--accent);}
+    header{background:var(--light);border-bottom:4px solid var(--accent);}    
     .header-inner{max-width:1100px;margin:auto;padding:26px 20px;display:flex;align-items:center;justify-content:space-between;}
-
-    /* Logo mark inspired by reference */
-    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;text-decoration:none;color:var(--dark);}
+    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;text-decoration:none;color:var(--dark);}    
     .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
-    .logo-mark::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85);border-radius:50%;transform:translate(5px,5px);} /* shadow circle */
+    .logo-mark::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85);border-radius:50%;transform:translate(5px,5px);}    
     .logo-mark::after{content:"";position:absolute;inset:0;background:var(--accent);border-radius:50%;}
-
-    /* Blog link top right */
     .blog-link{text-decoration:none;font-weight:700;font-family:'Montserrat',sans-serif;color:var(--dark);font-size:.95rem;border-bottom:2px solid var(--dark);transition:color .25s ease,border-color .25s ease;}
     .blog-link:hover,.blog-link:focus{color:var(--accent);border-color:var(--accent);}  
 
@@ -43,6 +39,8 @@
     .container{max-width:1100px;margin:auto;}
     h2{margin-top:0;font-size:2rem;color:var(--primary);font-family:'Montserrat',sans-serif;}
     h3{font-family:'Montserrat',sans-serif;}
+    /* teal headings for specific sections */
+    #about-course h2,#submissions h2{color:var(--accent);}    
 
     /* ===== ABOUT HERO LAYOUT ===== */
     .about-hero .hero-grid{display:flex;align-items:center;gap:60px;}
@@ -68,6 +66,7 @@
 
     /* Submissions list */
     .submissions ol{padding-left:22px;margin:0;}
+    .submissions li{margin-bottom:6px;}
     .placeholder{color:#6b7280;font-style:italic;}
 
     /* ===== UTILITIES ===== */
@@ -97,7 +96,7 @@
     <div class="header-inner">
       <a href="#about-me" class="logo">
         <span class="logo-mark"></span>
-        <span class="logo-text">Eric&nbsp;Boham</span>
+        <span class="logo-text">Eric E. &nbsp;Boham</span>
       </a>
       <a href="#" class="blog-link">→ BLOG</a>
     </div>
@@ -142,7 +141,7 @@
         <span class="chip">Scientific Writing</span>
         <span class="chip">Flow Cytometry</span>
         <span class="chip">Data Analysis (R)</span>
-        <span class="chip">Good Clinical &amp; Laboratory Practice</span>
+        <span class="chip">Good Clinical & Laboratory Practice</span>
       </div>
     </div>
   </section>
@@ -151,9 +150,9 @@
   <section id="about-course" style="background:#fff;">
     <div class="container">
       <h2>About the Course</h2>
-      <p>Generative AI for Work &amp; Research is a hands‑on programme covering practical AI tools and workflows. The curriculum spans content creation, automated data analysis, literature review, chatbot development, workflow automation, communication assets and a culminating capstone project.</p>
+      <p>Generative AI for Work & Research is a hands‑on programme covering practical AI tools and workflows. The curriculum spans content creation, automated data analysis, literature review, chatbot development and more.</p>
       <div class="module">
-        <h3>Documents, Presentations &amp; Websites</h3>
+        <h3>Documents, Presentations & Websites</h3>
         <ul>
           <li>Generate high‑quality text and web content.</li>
           <li>LLM fundamentals, Markdown, no‑code sites.</li>
@@ -162,39 +161,21 @@
       <div class="module">
         <h3>Automated Data Analysis</h3>
         <ul>
-          <li>AI‑powered data cleaning, visualization &amp; reporting.</li>
+          <li>AI‑powered data cleaning, visualization & reporting.</li>
           <li>Tools: ChatGPT Code Interpreter, Julius, Windsurf.</li>
         </ul>
       </div>
       <div class="module">
-        <h3>GenAI for Research &amp; Text Analysis</h3>
+        <h3>GenAI for Research & Text Analysis</h3>
         <ul>
-          <li>Literature search, summarization &amp; sentiment analysis.</li>
+          <li>Literature search, summarization & sentiment analysis.</li>
           <li>Tools: Elicit, LiteRev, custom LLM pipelines.</li>
         </ul>
       </div>
       <div class="module">
-        <h3>Custom GPTs &amp; Chatbots</h3>
+        <h3>Custom GPTs & Chatbots</h3>
         <ul>
           <li>RAG systems, Botpress workflows, API integrations.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>AI Workflows for Task Automation</h3>
-        <ul>
-          <li>Lindy and Make.com for email &amp; admin task automation.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>GenAI for Communication &amp; Outreach</h3>
-        <ul>
-          <li>Create visual &amp; multimedia assets for public engagement.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>Capstone Project &amp; Showcase</h3>
-        <ul>
-          <li>Design and pitch a real‑world AI solution.</li>
         </ul>
       </div>
     </div>
@@ -203,8 +184,7 @@
   <!-- ================= SUBMISSIONS ================= -->
   <section id="submissions" class="submissions">
     <div class="container">
-      <h2>My Weekly&nbsp;Submissions</h2>
-      <p class="placeholder">Links will appear here as the course progresses.</p>
+      <h2>My Weekly Submissions</h2>
       <ol>
-        <li>Week&nbsp;1 – Course onboarding (<a href="#">TBD</a>)</li>
-        <li>Week&nbsp;2 – Content generation exercise (<a href="#">T
+        <li>Week 1 – Course onboarding (<a href="#">TBD</a>)</li>
+        <li>Week 2 – Content generation exercise (<a href="#">TBD</
