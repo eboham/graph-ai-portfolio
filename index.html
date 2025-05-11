@@ -51,10 +51,13 @@
     .hero-grid .title{flex:1;}
     .hero-grid .title h2{font-size:2.8rem;line-height:1.05;margin:0;font-family:'Montserrat',sans-serif;color:var(--dark);}    
 
-    /* Action button */
-    .actions{margin-top:22px;}
-    .btn-linkedin{display:inline-block;background:var(--accent);color:#fff;padding:11px 24px;border:none;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease;}
+    /* Action buttons */
+    .actions{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;}
+    .btn-linkedin,.btn-cv{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease,color .3s ease;}
+    .btn-linkedin{background:var(--accent);color:#fff;border:none;}
     .btn-linkedin:hover,.btn-linkedin:focus{background:#0f9e93;}
+    .btn-cv{background:transparent;color:var(--accent);border:2px solid var(--accent);}
+    .btn-cv:hover,.btn-cv:focus{background:var(--accent);color:#fff;}
 
     /* Highlight chips */
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;}
@@ -67,7 +70,6 @@
     /* Submissions list */
     .submissions ol{padding-left:22px;margin:0;}
     .submissions li{margin-bottom:6px;}
-    .placeholder{color:#6b7280;font-style:italic;}
 
     /* ===== UTILITIES ===== */
     .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);}    
@@ -96,7 +98,7 @@
     <div class="header-inner">
       <a href="#about-me" class="logo">
         <span class="logo-mark"></span>
-        <span class="logo-text">Eric E. &nbsp;Boham</span>
+        <span class="logo-text">Eric&nbsp;Boham</span>
       </a>
       <a href="#" class="blog-link">→ BLOG</a>
     </div>
@@ -115,11 +117,12 @@
       <h2 class="visually-hidden">About Me</h2>
       <!-- Left intro column -->
       <div class="intro">
-        <p>I am a Ghanaian molecular medicine researcher with <strong>close to a decade of clinical‑research experience</strong>. Currently, I am pursuing a PhD at the University of Sapienza while collaborating on Plasmodium&nbsp;falciparum gametocyte and bone‑marrow micro‑environment research in partnership with the LITD Lab at KNUST and the Alano Lab&nbsp;(ISS).</p>
-        <p>I previously served as a Research Assistant with the Global Health and Infectious Diseases Research Group (KCCR), contributing to multicountry studies on SARS‑CoV‑2, dengue and meningitis.</p>
+        <p>I am a Ghanaian molecular medicine researcher with <strong>close to a decade of clinical‑research experience</strong>. Currently, I am pursuing a PhD at the University of Sapienza while collaborating on <strong>Plasmodium&nbsp;falciparum gametocyte and bone‑marrow micro‑environment</strong> research in partnership with the LITD Lab at KNUST and the Alano Lab&nbsp;(ISS).</p>
+        <p>I previously served as a Research Assistant at the Kumasi Centre for Collaborative Research in Tropical Medicine, contributing to multicountry studies on SARS‑CoV‑2, dengue and meningitis.</p>
 
         <div class="actions">
           <a class="btn-linkedin" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn-cv" href="https://drive.google.com/file/d/1nfWsU5RVhxjffjMU6eH1jXJDX0QsQJnE/view?usp=sharing" target="_blank" rel="noopener">Download CV (PDF)</a>
         </div>
       </div>
 
@@ -147,44 +150,4 @@
   </section>
 
   <!-- ================= ABOUT COURSE ================= -->
-  <section id="about-course" style="background:#fff;">
-    <div class="container">
-      <h2>About the Course</h2>
-      <p>Generative AI for Work & Research is a hands‑on programme covering practical AI tools and workflows. The curriculum spans content creation, automated data analysis, literature review, chatbot development and more.</p>
-      <div class="module">
-        <h3>Documents, Presentations & Websites</h3>
-        <ul>
-          <li>Generate high‑quality text and web content.</li>
-          <li>LLM fundamentals, Markdown, no‑code sites.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>Automated Data Analysis</h3>
-        <ul>
-          <li>AI‑powered data cleaning, visualization & reporting.</li>
-          <li>Tools: ChatGPT Code Interpreter, Julius, Windsurf.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>GenAI for Research & Text Analysis</h3>
-        <ul>
-          <li>Literature search, summarization & sentiment analysis.</li>
-          <li>Tools: Elicit, LiteRev, custom LLM pipelines.</li>
-        </ul>
-      </div>
-      <div class="module">
-        <h3>Custom GPTs & Chatbots</h3>
-        <ul>
-          <li>RAG systems, Botpress workflows, API integrations.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SUBMISSIONS ================= -->
-  <section id="submissions" class="submissions">
-    <div class="container">
-      <h2>My Weekly Submissions</h2>
-      <ol>
-        <li>Week 1 – Course onboarding (<a href="#">TBD</a>)</li>
-        <li>Week 2 – Content generation exercise (<a href="#">TBD</
+  <section id="about
