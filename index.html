@@ -4,150 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generative AI for Work & Research ‑ Portfolio | Eric Boham</title>
-  <!-- Montserrat for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root{
       --primary:#2d6cdf;
       --dark:#0d1d40;
       --light:#fcf9f7;
-      --accent:#14b8a6; /* teal accent */
+      --accent:#14b8a6;
     }
-
     *{box-sizing:border-box;scroll-behavior:smooth;}
     body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
-
-    /* ===== TOP HEADER (logo + blog) ===== */
-    header{background:var(--light);border-bottom:4px solid var(--accent);}    
+    header{background:var(--light);border-bottom:4px solid var(--accent);} 
     .header-inner{max-width:1100px;margin:auto;padding:26px 20px;display:flex;align-items:center;justify-content:space-between;}
-    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;text-decoration:none;color:var(--dark);}    
+    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);text-decoration:none;}
     .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
-    .logo-mark::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85);border-radius:50%;transform:translate(5px,5px);}    
-    .logo-mark::after{content:"";position:absolute;inset:0;background:var(--accent);border-radius:50%;}
-    .blog-link{text-decoration:none;font-weight:700;font-family:'Montserrat',sans-serif;color:var(--dark);font-size:.95rem;border-bottom:2px solid var(--dark);transition:color .25s ease,border-color .25s ease;}
-    .blog-link:hover,.blog-link:focus{color:var(--accent);border-color:var(--accent);}  
-
-    /* ===== NAVBAR ===== */
-    nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e1e5f2;display:flex;justify-content:center;gap:40px;padding:12px 0 14px;z-index:1000;}
-    nav a{text-decoration:none;color:var(--dark);font-weight:600;font-size:1rem;font-family:'Montserrat',sans-serif;transition:color .25s ease;}
-    nav a:hover,nav a:focus{color:var(--accent);}    
-
-    /* ===== SECTIONS ===== */
+    .logo-mark::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,.85);transform:translate(5px,5px);} 
+    .logo-mark::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);} 
+    nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:40px;background:#fff;border-bottom:1px solid #e1e5f2;padding:12px 0 14px;}
+    nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);text-decoration:none;transition:color .25s ease;}
+    nav a:hover,nav a:focus{color:var(--accent);} 
     section{padding:80px 20px;}
     .container{max-width:1100px;margin:auto;}
-    h2{margin-top:0;font-size:2rem;color:var(--primary);font-family:'Montserrat',sans-serif;}
-    h3{font-family:'Montserrat',sans-serif;}
-    /* teal headings for specific sections */
-    #about-course h2,#submissions h2{color:var(--accent);}    
-
-    /* ===== ABOUT HERO LAYOUT ===== */
-    .about-hero .hero-grid{display:flex;align-items:center;gap:60px;}
-    .hero-grid .intro{flex:1;max-width:320px;border-bottom:1px dotted var(--dark);padding-bottom:24px;}
-    .hero-grid .portrait{position:relative;flex:0 0 280px;}
-    .hero-grid .portrait::after{content:"";position:absolute;inset:-24px;z-index:-1;background:rgba(0,0,0,.85);border-radius:50%;}
-    .hero-grid .portrait img{display:block;width:280px;height:280px;object-fit:cover;border-radius:50%;border:6px solid #fff;}
-    .hero-grid .title{flex:1;}
-    .hero-grid .title h2{font-size:2.8rem;line-height:1.05;margin:0;font-family:'Montserrat',sans-serif;color:var(--dark);}    
-
-    /* Action buttons */
-    .actions{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap;}
-    .btn-linkedin,.btn-cv{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease,color .3s ease;}
-    .btn-linkedin{background:var(--accent);color:#fff;border:none;}
-    .btn-linkedin:hover,.btn-linkedin:focus{background:#0f9e93;}
-    .btn-cv{background:transparent;color:var(--accent);border:2px solid var(--accent);}
-    .btn-cv:hover,.btn-cv:focus{background:var(--accent);color:#fff;}
-
-    /* Highlight chips */
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;}
-    .chip{background:var(--accent);color:#fff;font-size:.82rem;padding:7px 14px;border-radius:24px;font-weight:600;}
-
-    /* Course modules */
-    .module{margin-bottom:28px;}
-    .module h3{margin:0 0 4px;font-size:1.15rem;color:var(--dark);}    
-
-    /* Submissions list */
-    .submissions ol{padding-left:22px;margin:0;}
-    .submissions li{margin-bottom:6px;}
-
-    /* ===== UTILITIES ===== */
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);}    
-
-    /* ===== RESPONSIVE ===== */
+    h2{margin:0 0 24px;font-family:'Montserrat',sans-serif;font-size:2rem;color:var(--accent);}    
+    /* ===== HERO LAYOUT ===== */
+    .hero-grid{display:flex;align-items:center;gap:60px;}
+    .intro{flex:1;max-width:320px;}
+    .intro p{margin:0 0 18px;}
+    .intro .dotted{border-bottom:2px dotted var(--dark);height:2px;margin-bottom:22px;}
+    /* Buttons */
+    .actions{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease,color .3s ease;}
+    .btn-primary{background:var(--accent);color:#fff;}
+    .btn-primary:hover{background:#0f9e93;}
+    .btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent);}
+    .btn-outline:hover{background:var(--accent);color:#fff;}
+    /* Portrait */
+    .portrait-wrap{position:relative;flex:0 0 280px;}
+    .portrait-wrap::after{content:"";position:absolute;inset:-40px -20px -40px -40px;background:rgba(0,0,0,.85);border-radius:50% 45% 50% 50%/55% 60% 45% 50%;z-index:-1;}
+    .portrait-wrap img{display:block;width:280px;height:280px;object-fit:cover;border-radius:50%;border:6px solid #fff;}
+    .title{flex:1;font-family:'Montserrat',sans-serif;}
+    .title h2{margin:0;font-size:2.8rem;line-height:1.05;color:var(--dark);}    
+    /* Lists */
+    .course-modules, .submissions-list{padding-left:20px;margin:0;}
+    .course-modules li, .submissions-list li{margin-bottom:6px;}
+    /* Responsive */
     @media(max-width:900px){
-      .about-hero .hero-grid{flex-direction:column;text-align:center;gap:40px;}
-      .hero-grid .intro{border:none;max-width:600px;padding:0;}
-      .hero-grid .title h2{font-size:2.2rem;}
-    }
-
-    /* ===== FOOTER ===== */
-    footer{background:#fff;border-top:1px solid #e1e5f2;text-align:center;padding:30px 10px;font-size:.85rem;color:#555;}
-
-    /* ===== DARK MODE ===== */
-    @media (prefers-color-scheme:dark){
-      body{background:#121723;color:#ccd3e0;}
-      nav{background:#1a1f2b;border-color:#1f2633;}
-      header{background:#1a1f2b;border-color:var(--accent);}  
+      nav{gap:24px;}
+      .hero-grid{flex-direction:column;text-align:center;gap:40px;}
+      .intro{max-width:600px;}
+      .intro .dotted{display:none;}
+      .title h2{font-size:2.2rem;}
     }
   </style>
 </head>
 <body>
-  <!-- Top header / logo row -->
   <header>
     <div class="header-inner">
-      <a href="#about-me" class="logo">
-        <span class="logo-mark"></span>
-        <span class="logo-text">Eric&nbsp;Boham</span>
-      </a>
-      <a href="#" class="blog-link">→ BLOG</a>
+      <a href="#about-me" class="logo"><span class="logo-mark"></span><span>Eric Boham</span></a>
     </div>
   </header>
 
-  <!-- Main nav -->
   <nav>
-    <a href="#about-me">About&nbsp;Me</a>
-    <a href="#about-course">About&nbsp;the&nbsp;Course</a>
-    <a href="#submissions">Weekly&nbsp;Submissions</a>
+    <a href="#about-me">About Me</a>
+    <a href="#about-course">About the Course</a>
+    <a href="#submissions">Weekly Submissions</a>
   </nav>
 
-  <!-- ================= ABOUT ME HERO ================= -->
+  <!-- ============ ABOUT ME ============ -->
   <section id="about-me" class="about-hero">
     <div class="container hero-grid">
-      <h2 class="visually-hidden">About Me</h2>
-      <!-- Left intro column -->
       <div class="intro">
-        <p>I am a Ghanaian molecular medicine researcher with <strong>close to a decade of clinical‑research experience</strong>. Currently, I am pursuing a PhD at the University of Sapienza while collaborating on <strong>Plasmodium&nbsp;falciparum gametocyte and bone‑marrow micro‑environment</strong> research in partnership with the LITD Lab at KNUST and the Alano Lab&nbsp;(ISS).</p>
-        <p>I previously served as a Research Assistant at the Kumasi Centre for Collaborative Research in Tropical Medicine, contributing to multicountry studies on SARS‑CoV‑2, dengue and meningitis.</p>
-
+        <p>Ghanaian researcher and current PhD student at Sapienza with nearly a decade of clinical‑research experience working with GHID-KCCR. Currently investigating <em>Plasmodium falciparum</em> gametocytes and bone‑marrow micro‑environments with LITD‑KNUST & Alano Lab (ISS).</p>
+        <div class="dotted"></div>
         <div class="actions">
-          <a class="btn-linkedin" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          <a class="btn-cv" href="https://drive.google.com/file/d/1nfWsU5RVhxjffjMU6eH1jXJDX0QsQJnE/view?usp=sharing" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-outline" href="https://drive.google.com/file/d/1nfWsU5RVhxjffjMU6eH1jXJDX0QsQJnE/view?usp=sharing" target="_blank" rel="noopener">Download CV (PDF)</a>
         </div>
       </div>
-
-      <!-- Central portrait -->
-      <div class="portrait">
+      <div class="portrait-wrap">
         <img src="https://github.com/eboham/graph-ai-portfolio/blob/main/20220328_142457.jpg?raw=true" alt="Portrait of Eric Boham">
       </div>
-
-      <!-- Right big title -->
-      <div class="title">
-        <h2>Eric<br>Ebenezer<br>Boham</h2>
-      </div>
-    </div>
-
-    <!-- Skill chips below hero -->
-    <div class="container">
-      <div class="chips">
-        <span class="chip">Project Management</span>
-        <span class="chip">Scientific Writing</span>
-        <span class="chip">Flow Cytometry</span>
-        <span class="chip">Data Analysis (R)</span>
-        <span class="chip">Good Clinical & Laboratory Practice</span>
-      </div>
+      <div class="title"><h2>Eric<br>Ebenezer<br>Boham</h2></div>
     </div>
   </section>
 
-  <!-- ================= ABOUT COURSE ================= -->
-  <section id="about
+  <!-- ========= ABOUT THE COURSE (unchanged) ========= -->
+  <section id="about-course" style="background:#fff;">
+    <div class="container">
+      <h2>About the Course</h2>
+      <p>The programme distills generative‑AI best practices into seven bite‑sized modules:</p>
+      <ul class="course-modules">
+        <li><strong>Documents, Presentations & Websites</strong> – create polished content and pages with LLMs.</li>
+        <li><strong>Automated Data Analysis</strong> – clean, visualise and report data using Code Interpreter, Julius & Windsurf.</li>
+        <li><strong>GenAI for Research & Text Analysis</strong> – literature review, summarisation and sentiment tools like Elicit & LiteRev.</li>
+        <li><strong>Custom GPTs & Chatbots</strong> – build task‑specific assistants with RAG systems and Botpress workflows.</li>
+        <li><strong>AI Workflows for Task Automation</strong> – orchestrate Lindy, Make.com and GSheets to reclaim hours.</li>
+        <li><strong>GenAI for Communication & Outreach</strong> – craft visuals, videos and marketing assets with AI.</li>
+        <li><strong>Capstone Project & Showcase</strong> – design and present a real‑world AI solution.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========= WEEKLY SUBMISSIONS (unchanged) ========= -->
+  <section id="submissions">
+    <div class="container">
+      <h2>Weekly Submissions</h2>
+      <ol class="submissions-list">
+        <li>Week 1 – Documents, Presentations & Websites (<a href="#">TBD</a>)</li>
+        <li>Week 2 – Automated Data Analysis (<a href="#">TBD</a>)</li>
+        <li>Week 3 – GenAI for Research & Text Analysis (<a href="#">TBD</a>)</li>
+        <li>Week 4 – Custom GPTs & Chatbots (<a href="#">TBD</a>)</li>
+        <li>Week 5 – AI Workflows for Task Automation (<a href="#">TBD</a>)</li>
+        <li>Week 6 – GenAI for Communication & Outreach (<a href="#">TBD</a>)</li>
+        <li>Week 7 – Capstone Planning (<a href="#">TBD</a>)</li>
+        <li>Week 8 – Capstone Showcase (<a href="#">TBD</a>)</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2025 Eric Ebenezer Amprofi Boham</div>
+  </footer>
+</body>
+</html>
