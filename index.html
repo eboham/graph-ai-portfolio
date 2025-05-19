@@ -13,43 +13,55 @@
       --dark:#0d1d40;
       --light:#fcf9f7;
       --accent:#14b8a6;
+      --card:#ffffff;
     }
-    *{box-sizing:border-box;scroll-behavior:smooth;}
-    body{margin:0;font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
+    *{box-sizing:border-box;scroll-behavior:smooth;margin:0;padding:0;}
+    body{font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
+    a{text-decoration:none;}
     header{background:var(--light);border-bottom:4px solid var(--accent);} 
     .header-inner{max-width:1100px;margin:auto;padding:26px 20px;display:flex;align-items:center;justify-content:space-between;}
-    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);text-decoration:none;}
+    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);}    
     .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
     .logo-mark::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,.85);transform:translate(5px,5px);} 
     .logo-mark::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);} 
     nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:40px;background:#fff;border-bottom:1px solid #e1e5f2;padding:12px 0 14px;}
-    nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);text-decoration:none;transition:color .25s ease;}
-    nav a:hover,nav a:focus{color:var(--accent);} 
+    nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);transition:color .25s ease;}
+    nav a:hover{color:var(--accent);} 
     section{padding:80px 20px;}
     .container{max-width:1100px;margin:auto;}
-    h2{margin:0 0 24px;font-family:'Montserrat',sans-serif;font-size:2rem;color:var(--accent);}    
-    /* ===== HERO LAYOUT ===== */
+    h2{font-family:'Montserrat',sans-serif;font-size:2rem;color:var(--accent);margin-bottom:24px;}
+
+    /* HERO section (unchanged) */
     .hero-grid{display:flex;align-items:center;gap:60px;}
     .intro{flex:1;max-width:320px;}
-    .intro p{margin:0 0 18px;}
+    .intro p{margin-bottom:18px;}
     .intro .dotted{border-bottom:2px dotted var(--dark);height:2px;margin-bottom:22px;}
-    /* Buttons */
     .actions{display:flex;gap:14px;flex-wrap:wrap;}
-    .btn{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;text-decoration:none;transition:background .3s ease,color .3s ease;}
+    .btn{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;transition:background .3s ease,color .3s ease;}
     .btn-primary{background:var(--accent);color:#fff;}
     .btn-primary:hover{background:#0f9e93;}
     .btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent);}
     .btn-outline:hover{background:var(--accent);color:#fff;}
-    /* Portrait */
     .portrait-wrap{position:relative;flex:0 0 280px;}
     .portrait-wrap::after{content:"";position:absolute;inset:-40px -20px -40px -40px;background:rgba(0,0,0,.85);border-radius:50% 45% 50% 50%/55% 60% 45% 50%;z-index:-1;}
-    .portrait-wrap img{display:block;width:280px;height:280px;object-fit:cover;border-radius:50%;border:6px solid #fff;}
+    .portrait-wrap img{display:block;width:280px;height:280px;border-radius:50%;border:6px solid #fff;object-fit:cover;}
     .title{flex:1;font-family:'Montserrat',sans-serif;}
-    .title h2{margin:0;font-size:2.8rem;line-height:1.05;color:var(--dark);}    
-    /* Lists */
-    .course-modules, .submissions-list{padding-left:20px;margin:0;}
-    .course-modules li, .submissions-list li{margin-bottom:6px;}
-    /* Responsive */
+    .title h2{font-size:2.8rem;line-height:1.05;color:var(--dark);}    
+
+    /* COURSE list */
+    .course-modules{padding-left:20px;}
+    .course-modules li{margin-bottom:6px;}
+
+    /* ==== NEW SUBMISSIONS GRID ==== */
+    .submissions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;}
+    .card{background:var(--card);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);display:flex;flex-direction:column;height:100%;transition:transform .25s ease,box-shadow .25s ease;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 18px rgba(0,0,0,.08);}    
+    .card-header{padding:20px;height:160px;background:#e9f5f3;border-top-left-radius:12px;border-top-right-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);text-align:center;}
+    .card-body{flex:1;padding:20px;font-size:.95rem;}
+    .card-footer{padding:16px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;font-weight:600;}
+    .card-footer a{color:var(--accent);}    
+
+    /* RESPONSIVE */
     @media(max-width:900px){
       nav{gap:24px;}
       .hero-grid{flex-direction:column;text-align:center;gap:40px;}
@@ -61,9 +73,7 @@
 </head>
 <body>
   <header>
-    <div class="header-inner">
-      <a href="#about-me" class="logo"><span class="logo-mark"></span><span>Eric Boham</span></a>
-    </div>
+    <div class="header-inner"><a href="#about-me" class="logo"><span class="logo-mark"></span><span>Eric Boham</span></a></div>
   </header>
 
   <nav>
@@ -72,25 +82,21 @@
     <a href="#submissions">Weekly Submissions</a>
   </nav>
 
-  <!-- ============ ABOUT ME ============ -->
-  <section id="about-me" class="about-hero">
+  <section id="about-me">
     <div class="container hero-grid">
       <div class="intro">
-        <p>Ghanaian researcher and current PhD student at Sapienza with nearly a decade of clinical‑research experience working with GHID-KCCR. Currently investigating <em>Plasmodium falciparum</em> gametocytes and bone‑marrow micro‑environments with LITD‑KNUST & Alano Lab (ISS).</p>
+        <p>Ghanaian molecular‑medicine researcher and current PhD student at Sapienza with nearly a decade of clinical‑research experience. Investigating <em>Plasmodium falciparum</em> gametocytes and bone‑marrow micro‑environments with LITD‑KNUST & Alano Lab (ISS).</p>
         <div class="dotted"></div>
         <div class="actions">
           <a class="btn btn-primary" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           <a class="btn btn-outline" href="https://drive.google.com/file/d/1nfWsU5RVhxjffjMU6eH1jXJDX0QsQJnE/view?usp=sharing" target="_blank" rel="noopener">Download CV (PDF)</a>
         </div>
       </div>
-      <div class="portrait-wrap">
-        <img src="https://github.com/eboham/graph-ai-portfolio/blob/main/20220328_142457.jpg?raw=true" alt="Portrait of Eric Boham">
-      </div>
+      <div class="portrait-wrap"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/20220328_142457.jpg?raw=true" alt="Portrait of Eric Boham"></div>
       <div class="title"><h2>Eric<br>Ebenezer<br>Boham</h2></div>
     </div>
   </section>
 
-  <!-- ========= ABOUT THE COURSE (unchanged) ========= -->
   <section id="about-course" style="background:#fff;">
     <div class="container">
       <h2>About the Course</h2>
@@ -107,25 +113,63 @@
     </div>
   </section>
 
-  <!-- ========= WEEKLY SUBMISSIONS (unchanged) ========= -->
+  <!-- ========== WEEKLY SUBMISSIONS (GRID) ========== -->
   <section id="submissions">
     <div class="container">
       <h2>Weekly Submissions</h2>
-      <ol class="submissions-list">
-        <li>Week 1 – Documents, Presentations & Websites (<a href="#">TBD</a>)</li>
-        <li>Week 2 – Workshop 2: Automated Data Analysis – Analyzed Gapminder data to explore relationships between two global indicators using AI tools. (<a href="https://github.com/eboham/graph-ai-portfolio/blob/main/Eric%20Boham_Workshop%202.pdf" target="_blank" rel="noopener">Report PDF</a>)</li>
-        <li>Week 3 – GenAI for Research & Text Analysis (<a href="#">TBD</a>)</li>
-        <li>Week 4 – Custom GPTs & Chatbots (<a href="#">TBD</a>)</li>
-        <li>Week 5 – AI Workflows for Task Automation (<a href="#">TBD</a>)</li>
-        <li>Week 6 – GenAI for Communication & Outreach (<a href="#">TBD</a>)</li>
-        <li>Week 7 – Capstone Planning (<a href="#">TBD</a>)</li>
-        <li>Week 8 – Capstone Showcase (<a href="#">TBD</a>)</li>
-      </ol>
+      <div class="submissions-grid">
+        <!-- Week 1 Card -->
+        <div class="card">
+          <div class="card-header">Week 1</div>
+          <div class="card-body">Documents, Presentations & Websites</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 2 Card -->
+        <div class="card">
+          <div class="card-header">Week 2</div>
+          <div class="card-body">Workshop 2: Automated Data Analysis – Gapminder exploration using AI tools.</div>
+          <div class="card-footer"><span>Report</span><a href="https://github.com/eboham/graph-ai-portfolio/blob/main/Eric%20Boham_Workshop%202.pdf" target="_blank" rel="noopener">→</a></div>
+        </div>
+        <!-- Week 3 Card -->
+        <div class="card">
+          <div class="card-header">Week 3</div>
+          <div class="card-body">GenAI for Research & Text Analysis</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 4 Card -->
+        <div class="card">
+          <div class="card-header">Week 4</div>
+          <div class="card-body">Custom GPTs & Chatbots</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 5 Card -->
+        <div class="card">
+          <div class="card-header">Week 5</div>
+          <div class="card-body">AI Workflows for Task Automation</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 6 Card -->
+        <div class="card">
+          <div class="card-header">Week 6</div>
+          <div class="card-body">GenAI for Communication & Outreach</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 7 Card -->
+        <div class="card">
+          <div class="card-header">Week 7</div>
+          <div class="card-body">Capstone Planning</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+        <!-- Week 8 Card -->
+        <div class="card">
+          <div class="card-header">Week 8</div>
+          <div class="card-body">Capstone Showcase</div>
+          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">© 2025 Eric Ebenezer Amprofi Boham</div>
-  </footer>
+  <footer><div class="container">© 2025 Eric Ebenezer Amprofi Boham</div></footer>
 </body>
 </html>
