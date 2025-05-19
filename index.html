@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generative AI for Work & Research ‑ Portfolio | Eric Boham</title>
+  <title>Generative AI for Work & Research - Portfolio | Eric Boham</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
     .container{max-width:1100px;margin:auto;}
     h2{font-family:'Montserrat',sans-serif;font-size:2rem;color:var(--accent);margin-bottom:24px;}
 
-    /* HERO section (unchanged) */
+    /* HERO section */
     .hero-grid{display:flex;align-items:center;gap:60px;}
     .intro{flex:1;max-width:320px;}
     .intro p{margin-bottom:18px;}
@@ -52,11 +52,13 @@
     .course-modules{padding-left:20px;}
     .course-modules li{margin-bottom:6px;}
 
-    /* ==== NEW SUBMISSIONS GRID ==== */
+    /* ==== SUBMISSIONS GRID ==== */
     .submissions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;}
-    .card{background:var(--card);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);display:flex;flex-direction:column;height:100%;transition:transform .25s ease,box-shadow .25s ease;}
+    .card{background:var(--card);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);display:flex;flex-direction:column;height:100%;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;}
     .card:hover{transform:translateY(-4px);box-shadow:0 8px 18px rgba(0,0,0,.08);}    
-    .card-header{padding:20px;height:160px;background:#e9f5f3;border-top-left-radius:12px;border-top-right-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);text-align:center;}
+    .card-header{height:160px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);text-align:center;}
+    .card-header.bg{background:#e9f5f3;}
+    .card-header img{width:100%;height:100%;object-fit:cover;}
     .card-body{flex:1;padding:20px;font-size:.95rem;}
     .card-footer{padding:16px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;font-weight:600;}
     .card-footer a{color:var(--accent);}    
@@ -113,20 +115,20 @@
     </div>
   </section>
 
-  <!-- ========== WEEKLY SUBMISSIONS (GRID) ========== -->
+  <!-- ========== WEEKLY SUBMISSIONS GRID ========== -->
   <section id="submissions">
     <div class="container">
       <h2>Weekly Submissions</h2>
       <div class="submissions-grid">
         <!-- Week 1 Card -->
         <div class="card">
-          <div class="card-header">Week 1</div>
+          <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/week%201.png?raw=true" alt="Week 1 preview"></div>
           <div class="card-body">Documents, Presentations & Websites</div>
-          <div class="card-footer"><span>Coming soon</span><a href="#">→</a></div>
+          <div class="card-footer"><span>Website</span><a href="https://eboham.github.io/graph-ai-portfolio/" target="_blank" rel="noopener">→</a></div>
         </div>
         <!-- Week 2 Card -->
         <div class="card">
-          <div class="card-header">Week 2</div>
+          <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/week%202.webp?raw=true" alt="Week 2 preview"></div>
           <div class="card-body">Workshop 2: Automated Data Analysis – Gapminder exploration using AI tools.</div>
           <div class="card-footer"><span>Report</span><a href="https://github.com/eboham/graph-ai-portfolio/blob/main/Eric%20Boham_Workshop%202.pdf" target="_blank" rel="noopener">→</a></div>
         </div>
