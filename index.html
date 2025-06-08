@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generative AI for Work & Research - Portfolio | Eric Boham</title>
+  <title>Generative AI for Work &amp; Research - Portfolio | Eric Boham</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
     .logo-mark::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,0.85);transform:translate(5px,5px);} 
     .logo-mark::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);} 
-    nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:40px;background:#fff;border-bottom:1px solid #e1e5f2;padding:12px 0 14px;}
+    nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:40px;background:#fff;border-bottom:1px solid #e1e5f2;padding:12px 0 14px;flex-wrap:wrap;}
     nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);transition:color .25s ease;}
     nav a:hover{color:var(--accent);} 
     section{padding:80px 20px;}
@@ -63,6 +63,10 @@
     .card-footer{padding:16px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;font-weight:600;}
     .card-footer a{color:var(--accent);}    
 
+    /* CONTACT section */
+    .iframe-wrap{max-width:640px;margin:auto;}
+    .iframe-wrap iframe{width:100%;height:824px;border:none;}
+
     /* RESPONSIVE */
     @media(max-width:900px){
       nav{gap:24px;}
@@ -82,6 +86,7 @@
     <a href="#about-me">About&nbsp;Me</a>
     <a href="#about-course">About&nbsp;the&nbsp;Course</a>
     <a href="#submissions">Weekly&nbsp;Submissions</a>
+    <a href="#consultation">Contact&nbsp;for&nbsp;Consultation</a>
   </nav>
 
   <section id="about-me">
@@ -172,7 +177,18 @@
     </div>
   </section>
 
-  <footer><div class="container">©&nbsp;2025&nbsp;Eric&nbsp;Ebenezer&nbsp;Amprofi&nbsp;Boham</div></footer>
+  <!-- ========== CONTACT FOR CONSULTATION SECTION ========== -->
+  <section id="consultation" style="background:#fff;">
+    <div class="container">
+      <h2>Contact for Consultation</h2>
+      <p>If you'd like to discuss a project or seek advice, please fill out the form below and I'll get back to you shortly.</p>
+      <div class="iframe-wrap">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd2BIz2ghRcMduZtnK3DCynj-djpKteHCm1Cxu6FXRVLCZQxQ/viewform?embedded=true" loading="lazy">Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container">© 2025 Eric Ebenezer Amprofi Boham</div></footer>
 <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
 <script src="https://files.bpcontent.cloud/2025/06/01/17/20250601174713-EI335GXI.js"></script>
 </body>
