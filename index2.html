@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI for Work &amp; Research - Portfolio | Eric Boham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#2d6cdf;
+      --dark:#0d1d40;
+      --light:#fcf9f7;
+      --accent:#14b8a6;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth;margin:0;padding:0;}
+    body{font-family:system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6;}
+    a{text-decoration:none;}
+    header{background:var(--light);border-bottom:4px solid var(--accent);} 
+    .header-inner{max-width:1100px;margin:auto;padding:26px 20px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:var(--dark);}    
+    .logo-mark{position:relative;width:30px;height:30px;margin-right:10px;}
+    .logo-mark::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(0,0,0,0.85);transform:translate(5px,5px);} 
+    .logo-mark::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);} 
+    nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:40px;background:#fff;border-bottom:1px solid #e1e5f2;padding:12px 0 14px;flex-wrap:wrap;}
+    nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);transition:color .25s ease;}
+    nav a:hover{color:var(--accent);} 
+    section{padding:80px 20px;}
+    .container{max-width:1100px;margin:auto;}
+    h2{font-family:'Montserrat',sans-serif;font-size:2rem;color:var(--accent);margin-bottom:24px;}
+
+    /* HERO section */
+    .hero-grid{display:flex;align-items:center;gap:60px;}
+    .intro{flex:1;max-width:320px;}
+    .intro p{margin-bottom:18px;}
+    .intro .dotted{border-bottom:2px dotted var(--dark);height:2px;margin-bottom:22px;}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn{display:inline-block;padding:11px 24px;border-radius:28px;font-weight:600;font-family:'Montserrat',sans-serif;transition:background .3s ease,color .3s ease;}
+    .btn-primary{background:var(--accent);color:#fff;}
+    .btn-primary:hover{background:#0f9e93;}
+    .btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent);}
+    .btn-outline:hover{background:var(--accent);color:#fff;}
+    .portrait-wrap{position:relative;flex:0 0 280px;}
+    .portrait-wrap::after{content:"";position:absolute;inset:-40px -20px -40px -40px;background:rgba(0,0,0,0.85);border-radius:50% 45% 50% 50%/55% 60% 45% 50%;z-index:-1;}
+    .portrait-wrap img{display:block;width:280px;height:280px;border-radius:50%;border:6px solid #fff;object-fit:cover;}
+    .title{flex:1;font-family:'Montserrat',sans-serif;}
+    .title h2{font-size:2.8rem;line-height:1.05;color:var(--dark);}    
+
+    /* COURSE list */
+    .course-modules{padding-left:20px;}
+    .course-modules li{margin-bottom:6px;}
+
+    /* ==== SUBMISSIONS GRID ==== */
+    .submissions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;}
+    .card{background:var(--card);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);display:flex;flex-direction:column;height:100%;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 18px rgba(0,0,0,0.08);}    
+    .card-header{height:160px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--dark);text-align:center;}
+    .card-header.bg{background:#e9f5f3;}
+    .card-header img{width:100%;height:100%;object-fit:cover;}
+    .card-body{flex:1;padding:20px;font-size:.95rem;}
+    .card-footer{padding:16px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;font-weight:600;}
+    .card-footer a{color:var(--accent);}    
+
+    /* CONTACT section */
+    .iframe-wrap{max-width:640px;margin:auto;}
+    .iframe-wrap iframe{width:100%;height:824px;border:none;}
+
+    /* CAPSTONE PROJECT PAGE */
+    .page{display:none;padding:80px 20px;}
+    .page.active{display:block;}
+    .capstone-iframe{max-width:750px;margin:auto;text-align:center;}
+    .capstone-iframe iframe{width:100%;max-width:700px;height:450px;border:none;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    .back-btn{display:inline-block;margin-bottom:30px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:6px;font-weight:600;transition:background .3s ease;}
+    .back-btn:hover{background:#0f9e93;}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav{gap:24px;}
+      .hero-grid{flex-direction:column;text-align:center;gap:40px;}
+      .intro{max-width:600px;}
+      .intro .dotted{display:none;}
+      .title h2{font-size:2.2rem;}
+      .capstone-iframe iframe{height:350px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner"><a href="#about-me" class="logo" onclick="showHomePage()"><span class="logo-mark"></span><span>Eric&nbsp;Boham</span></a></div>
+  </header>
+
+  <nav id="main-nav">
+    <a href="#about-me" onclick="showHomePage()">About&nbsp;Me</a>
+    <a href="#about-course" onclick="showHomePage()">About&nbsp;the&nbsp;Course</a>
+    <a href="#submissions" onclick="showHomePage()">Weekly&nbsp;Submissions</a>
+    <a href="#consultation" onclick="showHomePage()">Contact&nbsp;for&nbsp;Consultation</a>
+  </nav>
+
+  <!-- HOME PAGE CONTENT -->
+  <div id="home-page">
+    <section id="about-me">
+      <div class="container hero-grid">
+        <div class="intro">
+          <p>Ghanaian molecular‑medicine researcher and current PhD student at Sapienza with nearly a decade of clinical‑research experience.<br>Investigating <em>Plasmodium&nbsp;falciparum</em> gametocytes and bone‑marrow micro‑environments with LITD‑KNUST &amp;&nbsp;Alano&nbsp;Lab&nbsp;(ISS).</p>
+          <div class="dotted"></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/eric-ebenezer-boham/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            <a class="btn btn-outline" href="https://drive.google.com/file/d/1nfWsU5RVhxjffjMU6eH1jXJDX0QsQJnE/view?usp=sharing" target="_blank" rel="noopener">Download&nbsp;CV&nbsp;(PDF)</a>
+          </div>
+        </div>
+        <div class="portrait-wrap"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/20220328_142457.jpg?raw=true" alt="Portrait of Eric Boham"></div>
+        <div class="title"><h2>Eric<br>Ebenezer<br>Boham</h2></div>
+      </div>
+    </section>
+
+    <section id="about-course" style="background:#fff;">
+      <div class="container">
+        <h2>About the Course</h2>
+        <p>The programme distills generative‑AI best practices into seven bite‑sized modules:</p>
+        <ul class="course-modules">
+          <li><strong>Documents, Presentations&nbsp;&amp; Websites</strong>&nbsp;– create polished content and pages with LLMs.</li>
+          <li><strong>Automated Data Analysis</strong>&nbsp;– clean, visualise and report data using Code&nbsp;Interpreter, Julius &amp; Windsurf.</li>
+          <li><strong>GenAI for Research&nbsp;&amp; Text Analysis</strong>&nbsp;– literature review, summarisation and sentiment tools like Elicit &amp; LiteRev.</li>
+          <li><strong>Custom GPTs&nbsp;&amp; Chatbots</strong>&nbsp;– build task‑specific assistants with RAG systems and Botpress workflows.</li>
+          <li><strong>AI Workflows for Task Automation</strong>&nbsp;– orchestrate Lindy, Make.com and GSheets to reclaim hours.</li>
+          <li><strong>GenAI for Communication&nbsp;&amp; Outreach</strong>&nbsp;– craft visuals, videos and marketing assets with AI.</li>
+          <li><strong>Capstone Project&nbsp;&amp; Showcase</strong>&nbsp;– design and present a real‑world AI solution.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== WEEKLY SUBMISSIONS GRID ========== -->
+    <section id="submissions">
+      <div class="container">
+        <h2>Weekly&nbsp;Submissions</h2>
+        <div class="submissions-grid">
+          <!-- Week 1 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/week%201.png?raw=true" alt="Week 1 preview"></div>
+            <div class="card-body">Documents, Presentations &amp; Websites</div>
+            <div class="card-footer"><span>Website</span><a href="https://eboham.github.io/graph-ai-portfolio/" target="_blank" rel="noopener">→</a></div>
+          </div>
+          <!-- Week 2 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/week%202.webp?raw=true" alt="Week 2 preview"></div>
+            <div class="card-body">Workshop&nbsp;2: Automated Data Analysis – Gapminder exploration using AI tools.</div>
+            <div class="card-footer"><span>Report</span><a href="https://github.com/eboham/graph-ai-portfolio/blob/main/Eric%20Boham_Workshop%202.pdf" target="_blank" rel="noopener">→</a></div>
+          </div>
+          <!-- Week 3 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/week3.png?raw=true" alt="Week 3 preview"></div>
+            <div class="card-body">Workshop&nbsp;3: Analyzing Job Market Data (text) with LLM APIs.</div>
+            <div class="card-footer"><span>Report</span><a href="https://github.com/eboham/graph-ai-portfolio/blob/main/Eric%20Boham_Workshop%203.pdf" target="_blank" rel="noopener">→</a></div>
+          </div>
+          <!-- Week 4 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/boh%20bot.jpg?raw=true" alt="Week 4 preview"></div>
+            <div class="card-body">Custom GPTs &amp; Chatbots</div>
+            <div class="card-footer"><span>Website</span><a href="https://cdn.botpress.cloud/webchat/v3.0/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/01/17/20250601174713-ONNL5ZRW.json" target="_blank" rel="noopener">→</a></div>
+          </div>
+          <!-- Week 5 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/ZrYZ2kaF0TcGI0t6_AIAgent%26AIAgenticWorkflowsAcrossIndustries.avif?raw=true" alt="Week 5 preview"></div>
+            <div class="card-body">AI Workflows for Task Automation</div>
+            <div class="card-footer"><span>Coming&nbsp;soon</span><a href="#consultation">→</a></div>
+          </div>
+          <!-- Week 6 Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/Boham_Graph%20Courses%20-%20Al%20Portfolio%20Showcase%20Day%20Generative%20AI%20for%20Work%20%26%20Research.png?raw=true" alt="Week 6 preview"></div>
+            <div class="card-body">GenAI for Communication &amp; Outreach</div>
+            <div class="card-footer"><span>Project</span><a href="https://github.com/eboham/graph-ai-portfolio/blob/main/covid_seroprevalence_abstract.html" target="_blank" rel="noopener">→</a></div>
+          </div>
+          <!-- Week 7 & 8 Merged Card -->
+          <div class="card">
+            <div class="card-header"><img src="https://github.com/eboham/graph-ai-portfolio/blob/main/hq720.jpg?raw=true" alt="Capstone preview"></div>
+            <div class="card-body">Capstone Planning &amp; Showcase</div>
+            <div class="card-footer"><span>Project</span><a href="#" onclick="showCapstonePage(); return false;">→</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT FOR CONSULTATION SECTION ========== -->
+    <section id="consultation" style="background:#fff;">
+      <div class="container">
+        <h2>Contact for Consultation</h2>
+        <p>If you'd like to discuss a project or seek advice, please fill out the form below and I'll get back to you shortly.</p>
+        <div class="iframe-wrap">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd2BIz2ghRcMduZtnK3DCynj-djpKteHCm1Cxu6FXRVLCZQxQ/viewform?embedded=true" loading="lazy">Loading…</iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer><div class="container">© 2025 Eric Ebenezer Amprofi Boham</div></footer>
+  </div>
+
+  <!-- CAPSTONE PROJECT PAGE -->
+  <div id="capstone-page" class="page">
+    <div class="container">
+      <a href="#" class="back-btn" onclick="showHomePage(); return false;">← Back to Portfolio</a>
+      <h2>Capstone Project</h2>
+      <p>Explore my capstone project presentation showcasing the application of generative AI in research and work environments.</p>
+      <div class="capstone-iframe">
+        <iframe src="https://gamma.app/embed/khhao9spr2go02l" allow="fullscreen" title="Capstone Project">Loading presentation...</iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showHomePage() {
+      document.getElementById('home-page').style.display = 'block';
+      document.getElementById('capstone-page').style.display = 'none';
+      
+      // Update URL without reloading page
+      if (window.history && window.history.pushState) {
+        window.history.pushState({}, '', '#');
+      }
+      
+      // Scroll to top or specific section if there's a hash
+      if (window.location.hash) {
+        setTimeout(() => {
+          const element = document.querySelector(window.location.hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function showCapstonePage() {
+      document.getElementById('home-page').style.display = 'none';
+      document.getElementById('capstone-page').style.display = 'block';
+      
+      // Update URL
+      if (window.history && window.history.pushState) {
+        window.history.pushState({}, '', '#capstone');
+      }
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+      if (window.location.hash === '#capstone') {
+        showCapstonePage();
+      } else {
+        showHomePage();
+      }
+    });
+
+    // Initialize page based on URL
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash === '#capstone') {
+        showCapstonePage();
+      } else {
+        showHomePage();
+      }
+    });
+  </script>
+
+<script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/06/01/17/20250601174713-EI335GXI.js"></script>
+</body>
+</html>
