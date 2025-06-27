@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <style>
+    <!-- Botpress WebChat v3.0 -->
+      <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+
+      <style>
+        /* Make the embedded frame stretch to its container
+           and hide the floating FAB button (we open chat automatically) */
+        #webchat .bpWebchat { position: unset; width: 100%; height: 100%; max-height: 100%; max-width: 100%; }
+        #webchat .bpFab     { display: none; }
+      </style>
+
     :root{
       --primary:#2d6cdf;
       --dark:#0d1d40;
@@ -197,8 +207,45 @@
     </div>
   </section>
 
+  <!-- ========== ASSISTANT ========== -->
+<section id="assistant" style="background:#fff;">
+  <div class="container">
+    <h2>Chat with Eric’s Assistant</h2>
+
+    <!-- Botpress will render itself inside this DIV -->
+    <div id="webchat" style="width:100%; height:600px;"></div>
+  </div>
+</section>
+
   <footer><div class="container">© 2025 Eric Ebenezer Amprofi Boham</div></footer>
-<script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/06/01/17/20250601174713-EI335GXI.js"></script>
+
+  <script>
+  /* Open the chat as soon as it’s ready */
+  window.botpress.on('webchat:ready', () => window.botpress.open());
+
+  /* Full widget configuration */
+  window.botpress.init({
+    botId:   'bc47fb16-c17d-4ffc-b06f-2a79ff6aeba2',
+    clientId:'82d2193d-6e21-4414-9861-f8c081d6afbf',
+    selector:'#webchat',
+    configuration:{
+      version:             'v1',
+      composerPlaceholder: 'Here to help',
+      botName:             "Eric's Assistant",
+      botAvatar:           'https://files.bpcontent.cloud/2025/06/01/18/20250601182258-7L0JNF5P.jpeg',
+      botDescription:      "I am Eric's portfolio assistant. I can assist you with information on his professional career and/or about the GenAI Course.\n\n(ChatBot can make mistakes)",
+      fabImage:            'https://files.bpcontent.cloud/2025/06/01/18/20250601182258-7L0JNF5P.jpeg',
+      color:               '#12a594',
+      variant:             'soft',
+      headerVariant:       'glass',
+      themeMode:           'light',
+      fontFamily:          'inter',
+      radius:              3,
+      feedbackEnabled:     false,
+      footer:              '[⚡ by Botpress](https://botpress.com/?from=webchat)'
+    }
+  });
+</script>
+
 </body>
 </html>
