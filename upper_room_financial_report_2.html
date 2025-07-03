@@ -180,12 +180,16 @@
             });
 
             /* ---------- KPI CALCULATIONS ---------- */
-            
-            /* ---------- Determine Total Budget ---------- */
-        // Hard‑coded authoritative total budget (GHS)
-        const totalBudget = 49670.00;
+            const totalBudget = budget.reduce((sum,b)=>sum+b.amount,0);
+            const fundsSecured = donors.reduce((sum,d)=>sum+d.amount,0);
+            const expensesTotal = expenses.reduce((sum,e)=>sum+e.amount,0);
+            const fundingGap = Math.max(totalBudget - fundsSecured,0);
+            const availableBalance = Math.max(fundsSecured - expensesTotal,0);
+            const pendingPayments = fundingGap; // Simple placeholder – adjust if you track differently
 
-/* ---------- Update KPI Elements ---------- */
+            const pct = (val,total)=> total ? ((val/total)*100).toFixed(0) : 0;
+
+            /* ---------- Update KPI Elements ---------- */
             document.getElementById('kpiTotalBudget').textContent = totalBudget.toLocaleString(undefined,{minimumFractionDigits:2});
             document.getElementById('kpiFundsSecured').textContent = fundsSecured.toLocaleString(undefined,{minimumFractionDigits:2});
             document.getElementById('kpiExpenses').textContent = expensesTotal.toLocaleString(undefined,{minimumFractionDigits:2});
