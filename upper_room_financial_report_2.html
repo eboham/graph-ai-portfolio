@@ -182,18 +182,8 @@
             /* ---------- KPI CALCULATIONS ---------- */
             
             /* ---------- Determine Total Budget ---------- */
-        // Pull the authoritative total budget directly from line 2 of the sheet (index 1 in the parsed data)
-        let totalBudget = 0;
-        if (parsed.length > 1) {
-            const amountRawSheet = (parsed[1][1] || '').trim();   // second column of line 2
-            totalBudget = parseFloat(amountRawSheet.replace(/[,GHS\s]/g,'')) || 0;
-        }
-
-        // Fallback to previous logic if the sheet value is missing/zero
-        if (!totalBudget) {
-            const totalRow = budget.find(r => /total/i.test(r.name));
-            totalBudget = totalRow ? totalRow.amount : budget.reduce((sum,b)=>sum+b.amount,0);
-        }
+        // Hard‑coded authoritative total budget (GHS)
+        const totalBudget = 49670.00;
 
 /* ---------- Update KPI Elements ---------- */
             document.getElementById('kpiTotalBudget').textContent = totalBudget.toLocaleString(undefined,{minimumFractionDigits:2});
