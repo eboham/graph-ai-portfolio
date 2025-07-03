@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upper Room Experience 2025 - Executive Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+
+```
+    .dashboard {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .header-section {
+        background: linear-gradient(135deg, #2c5530 0%, #1e3a23 100%);
+        color: white;
+        padding: 30px 40px;
+        text-align: center;
+    }
+    
+    .header-section h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+    
+    .header-section p {
+        margin: 10px 0 0 0;
+        font-size: 16px;
+        opacity: 0.9;
+    }
+    
+    .main-content {
+        padding: 40px;
+    }
+    
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    
+    .kpi-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .kpi-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(44, 85, 48, 0.15);
+    }
+    
+    .kpi-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #2c5530, #3a6b3f);
+    }
+    
+    .kpi-card h3 {
+        color: #666;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 10px 0;
+        font-weight: 600;
+    }
+    
+    .kpi-value {
+        font-size: 28px;
+        font-weight: bold;
+        color: #2c5530;
+        margin: 0;
+    }
+    
+    .progress-indicator {
+        margin-top: 15px;
+        height: 6px;
+        background-color: #e9ecef;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #2c5530, #4caf50);
+        border-radius: 3px;
+        transition: width 0.8s ease;
+    }
+    
+    .section-divider {
+        margin: 50px 0;
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #2c5530, transparent);
+    }
+    
+    .data-section {
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        color: #2c5530;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 25px;
+        background: linear-gradient(135deg, #2c5530, #4caf50);
+        margin-right: 15px;
+        border-radius: 2px;
+    }
+    
+    .data-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .data-panel {
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .panel-header {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 15px 20px;
+        font-weight: 600;
+        color: #2c5530;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .panel-content {
+        padding: 0;
+    }
+    
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .data-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+    
+    .data-table td {
+        padding: 12px 20px;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .data-table td:last-child {
+        text-align: right;
+        font-weight: 600;
+        color: #2c5530;
+    }
+    
+    .total-row {
+        background: linear-gradient(135deg, #2c5530, #1e3a23) !important;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .total-row td {
+        color: #ffffff !important;
+        border-bottom: none !important;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .status-raised {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    
+    .status-needed {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    
+    .executive-summary {
+        background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 30px 0;
+        border-left: 5px solid #2c5530;
+    }
+    
+    .executive-summary h3 {
+        color: #2c5530;
+        margin: 0 0 15px 0;
+        font-size: 20px;
+    }
+    
+    .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .stat-item {
+        text-align: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    
+    .stat-value {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c5530;
+    }
+    
+    .footer-info {
+        margin-top: 50px;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        padding-top: 25px;
+        border-top: 1px solid #e9ecef;
+    }
+    
+    @media (max-width: 768px) {
+        .data-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+    }
+    
+    @media print {
+        body { background: white; }
+        .dashboard { box-shadow: none; }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header-section">
+            <h1>UPPER ROOM EXPERIENCE 2025</h1>
+            <p>Financial Dashboard</p>
+        </div>
+
+```
+    <div class="main-content">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <h3>Total Budget (External)</h3>
+                <p class="kpi-value" id="totalBudget">GHS 49,760</p>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <h3>Funds Secured
+```
