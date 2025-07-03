@@ -180,7 +180,16 @@
             });
 
             /* ---------- KPI CALCULATIONS ---------- */
-            const totalBudget = budget.reduce((sum,b)=>sum+b.amount,0);
+            
+            /* ---------- Determine Total Budget ---------- */
+            let totalBudget = 0;
+            const totalRow = budget.find(r => /total/i.test(r.name));
+            if (totalRow) {
+                totalBudget = totalRow.amount;
+            } else {
+                totalBudget = budget.reduce((sum,b)=>sum+b.amount,0);
+            }
+
             const fundsSecured = donors.reduce((sum,d)=>sum+d.amount,0);
             const expensesTotal = expenses.reduce((sum,e)=>sum+e.amount,0);
             const fundingGap = Math.max(totalBudget - fundsSecured,0);
