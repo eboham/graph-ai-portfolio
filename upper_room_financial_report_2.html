@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upper Room Experience 2025 - Executive Dashboard</title>
-    <!-- Imported from original dashboard – style preserved -->
+    <title>Upper Room Experience 2025 – Executive Dashboard (Live)</title>
+
+    <!-- ===== Styles adapted from original 'upper_room_financial_report_2.html' ===== -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,112 +17,233 @@
         .dashboard {
             max-width: 1100px;
             margin: 0 auto;
-            background: white;
+            background: #fff;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         .header-section {
             background: linear-gradient(135deg, #2c5530 0%, #1e3a23 100%);
-            color: white;
+            color: #fff;
             padding: 30px 40px;
             text-align: center;
         }
-        .header-section h1 { margin: 0; font-size: 32px; font-weight: 300; letter-spacing: 2px;}
-        .header-section p { margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;}
+        .header-section h1 { margin: 0; font-size: 32px; font-weight: 300; letter-spacing: 2px; }
+        .header-section p { margin: 10px 0 0 0; font-size: 16px; opacity: 0.9; }
+
         .main-content { padding: 40px; }
-        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px;}
+        /* KPI GRID */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 25px; margin-bottom: 40px; }
         .kpi-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background: linear-gradient(135deg,#ffffff 0%,#f8f9fa 100%);
             border: 1px solid #e9ecef;
             border-radius: 12px;
             padding: 25px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform .3s ease, box-shadow .3s ease;
             position: relative;
             overflow: hidden;
         }
-        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(44, 85, 48, 0.15);}
+        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(44,85,48,.15); }
         .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2c5530, #3a6b3f);
+            content: ''; position: absolute; top:0; left:0; right:0; height:4px;
+            background: linear-gradient(90deg,#2c5530,#3a6b3f);
         }
-        .kpi-card h3 { color: #666; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0; font-weight: 600;}
-        .kpi-value { font-size: 28px; font-weight: bold; color: #2c5530; margin: 0;}
-        .progress-indicator { margin-top: 15px; height: 6px; background-color: #e9ecef; border-radius: 3px; overflow: hidden;}
-        .progress-bar { height: 100%; background: linear-gradient(90deg, #2c5530, #4caf50); border-radius: 3px; transition: width 0.8s ease;}
-        .section-divider { margin: 50px 0; border: none; height: 2px; background: linear-gradient(90deg, transparent, #2c5530, transparent);}        
-        .data-section { margin-bottom: 40px; }
-        .section-title { color: #2c5530; font-size: 24px; font-weight: 600; margin-bottom: 25px; display: flex; align-items: center;}
-        .section-title::before { content: ''; width: 4px; height: 25px; background: linear-gradient(135deg, #2c5530, #4caf50); margin-right: 15px; border-radius: 2px;}
-        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px;}
-        .data-panel { background: #ffffff; border: 1px solid #e9ecef; border-radius: 10px; overflow: hidden;}
-        .panel-header { background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 15px 20px; font-weight: 600; color: #2c5530; border-bottom: 1px solid #dee2e6;}
-        .data-table { width: 100%; border-collapse: collapse;}
-        .data-table tr:nth-child(even) { background-color: #f8f9fa;}
-        .data-table td { padding: 12px 20px; border-bottom: 1px solid #e9ecef;}
-        .data-table td:last-child { text-align: right; font-weight: 600; color: #2c5530;}
-        .total-row { background: linear-gradient(135deg, #2c5530, #1e3a23) !important; color: white; font-weight: bold;}
-        .total-row td { color: #ffffff !important; border-bottom: none !important;}
-        .status-badge { display: inline-block; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase;}
-        .status-raised { background-color: #d4edda; color: #155724;}
-        .status-needed { background-color: #f8d7da; color: #721c24;}
-        .executive-summary { background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-radius: 12px; padding: 25px; margin: 30px 0; border-left: 5px solid #2c5530;}
-        .executive-summary h3 { color: #2c5530; margin: 0 0 15px 0; font-size: 20px;}
-        .summary-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;}
-        .stat-item { text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.7); border-radius: 8px;}
-        .stat-label { font-size: 12px; color: #666; text-transform: uppercase; margin-bottom: 5px;}
-        .stat-value { font-size: 18px; font-weight: bold; color: #2c5530;}
-        .footer-info { margin-top: 50px; text-align: center; color: #666; font-size: 14px; padding-top: 25px; border-top: 1px solid #e9ecef;}
-        @media (max-width: 768px) {.data-grid { grid-template-columns: 1fr;} .main-content { padding: 20px;}}
-        @media print { body { background: white;} .dashboard { box-shadow: none;}}
+        .kpi-card h3 { color:#666; font-size:14px; text-transform:uppercase; letter-spacing:1px; margin:0 0 10px 0; font-weight:600; }
+        .kpi-value { font-size:28px; font-weight:bold; color:#2c5530; margin:0; }
+        .progress-indicator { margin-top:15px; height:6px; background-color:#e9ecef; border-radius:3px; overflow:hidden; }
+        .progress-bar { height:100%; background:linear-gradient(90deg,#2c5530,#4caf50); border-radius:3px; transition:width .8s ease; }
+
+        /* EXECUTIVE SUMMARY */
+        .executive-summary {
+            background: linear-gradient(135deg,#fff3cd,#ffeaa7);
+            border-radius:12px;
+            padding:25px;
+            margin:30px 0;
+            border-left:5px solid #2c5530;
+        }
+        .executive-summary h3 { color:#2c5530; margin:0 0 15px 0; font-size:20px; }
+        .summary-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-top:20px; }
+        .stat-item { text-align:center; padding:15px; background:rgba(255,255,255,.7); border-radius:8px; }
+        .stat-label { font-size:12px; color:#666; text-transform:uppercase; margin-bottom:5px; }
+        .stat-value { font-size:18px; font-weight:bold; color:#2c5530; }
+
+        /* DATA TABLES */
+        h2 { margin-top:40px; border-bottom:2px solid #2c5530; display:inline-block; padding-bottom:4px; }
+        .data-table { width:100%; border-collapse:collapse; font-size:.92rem; margin-top:12px; }
+        .data-table td { padding:6px 8px; border-bottom:1px solid #e0e0e0; }
+        .data-table tr:nth-child(even) { background:#f5f5f5; }
+        .total-row td { font-weight:bold; border-top:2px solid #2c5530; }
+        footer { margin-top:40px; text-align:center; font-size:.8rem; color:#666; }
+
+        @media(max-width:768px){ .main-content{padding:20px;} .kpi-grid{grid-template-columns:1fr;} }
     </style>
 </head>
 <body>
-    <div class='dashboard'>
-        <div class='header-section'>
+    <div class="dashboard">
+        <div class="header-section">
             <h1>UPPER ROOM EXPERIENCE 2025</h1>
-            <p>Financial Dashboard</p>
+            <p>Financial Dashboard (Live‑Linked)</p>
         </div>
 
-        <div class='main-content'>
+        <div class="main-content">
             <!-- KPI GRID -->
-            <div class='kpi-grid'>
-                <div class='kpi-card'>
+            <div class="kpi-grid">
+                <div class="kpi-card">
                     <h3>Total Budget (External)</h3>
-                    <p class='kpi-value'>GHS <span id='kpiTotalBudget'>49,670</span></p>
-                    <div class='progress-indicator'><div id='barTotal' class='progress-bar' style='width:100%'></div></div>
+                    <p class="kpi-value">GHS <span id="kpiTotalBudget">0</span></p>
+                    <div class="progress-indicator"><div id="barTotal" class="progress-bar" style="width:100%"></div></div>
                 </div>
-
-                <div class='kpi-card'>
+                <div class="kpi-card">
                     <h3>Funds Secured</h3>
-                    <p class='kpi-value'>GHS <span id='kpiFundsSecured'>24,785</span></p>
-                    <div class='progress-indicator'><div id='barSecured' class='progress-bar' style='width:50%'></div></div>
-                    <small style='color:#666; margin-top:8px; display:block;'><span id='lblPercentSecured'>50%</span> of total budget</small>
+                    <p class="kpi-value">GHS <span id="kpiFundsSecured">0</span></p>
+                    <div class="progress-indicator"><div id="barSecured" class="progress-bar" style="width:0%"></div></div>
+                    <small style="color:#666; margin-top:8px; display:block;"><span id="lblPercentSecured">0%</span> of total budget</small>
                 </div>
-
-                <div class='kpi-card'>
+                <div class="kpi-card">
                     <h3>Expenses Incurred</h3>
-                    <p class='kpi-value'>GHS <span id='kpiExpenses'>15,131</span></p>
-                    <div class='progress-indicator'><div id='barExpenses' class='progress-bar' style='width:30%'></div></div>
-                    <small style='color:#666; margin-top:8px; display:block;'><span id='lblPercentExpenses'>30%</span> of total budget</small>
+                    <p class="kpi-value">GHS <span id="kpiExpenses">0</span></p>
+                    <div class="progress-indicator"><div id="barExpenses" class="progress-bar" style="width:0%"></div></div>
+                    <small style="color:#666; margin-top:8px; display:block;"><span id="lblPercentExpenses">0%</span> of total budget</small>
                 </div>
-
-                <div class='kpi-card'>
+                <div class="kpi-card">
                     <h3>Funding Gap</h3>
-                    <p class='kpi-value'>GHS <span id='kpiGap'>24,885</span></p>
-                    <div class='progress-indicator'><div id='barGap' class='progress-bar' style='width:50%; background:linear-gradient(90deg,#dc3545,#ff6b6b);'></div></div>
-                    <small style='color:#666; margin-top:8px; display:block;'><span id='lblPercentGap'>50%</span> still needed</small>
+                    <p class="kpi-value">GHS <span id="kpiGap">0</span></p>
+                    <div class="progress-indicator"><div id="barGap" class="progress-bar" style="width:0%; background:linear-gradient(90deg,#dc3545,#ff6b6b);"></div></div>
+                    <small style="color:#666; margin-top:8px; display:block;"><span id="lblPercentGap">0%</span> still needed</small>
                 </div>
             </div>
 
             <!-- EXECUTIVE SUMMARY -->
-            <div class='executive-summary'>
+            <div class="executive-summary">
                 <h3>Executive Summary</h3>
-                <p>The Upper Room Experience 2025 requires a total budget of <strong>GHS <span id='summaryTotal'>49,670</span></strong> for external costs. Current fundraising efforts have secured <strong>GHS <span id='summarySecured'>24,785</span> (<span id='summaryPercent'>50%</span>)</strong> of the required funding, with actual expenses of <strong>GHS <span id='summaryExpenses'>15,131</span></strong> already incurred. The program currently faces a funding gap of <strong>GHS <span id='summaryGap'>24,885</span></strong>.</p>
-                <div class='summary-stats'>
-                    <div class='stat-item'><div class='stat-label'>Available Balance</div><div class='stat-value'>GHS <span id='statAvailable'>9,654</span></div></div>
-                    <div class='stat-item'><div class='stat-label'>Pending Vendor Payments
+                <p>The Upper Room Experience 2025 requires a total external budget of <strong>GHS <span id="summaryTotal">0</span></strong>. Current fundraising efforts have secured <strong>GHS <span id="summarySecured">0</span> (<span id="summaryPercent">0%</span>)</strong> of the required funding, with actual expenses of <strong>GHS <span id="summaryExpenses">0</span></strong> already incurred. The program currently faces a funding gap of <strong>GHS <span id="summaryGap">0</span></strong>.</p>
+                <div class="summary-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Available Balance</div>
+                        <div class="stat-value">GHS <span id="statAvailable">0</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Pending Vendor Payments</div>
+                        <div class="stat-value">GHS <span id="statPending">0</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA TABLES -->
+            <h2>🎯 Fundraising & Donations</h2>
+            <table id="donors-table" class="data-table"></table>
+
+            <h2>💰 Budget vs. Actual Expenses</h2>
+            <table id="budget-table" class="data-table"></table>
+
+            <h2>📊 Itemized Expenses (Paid to Date)</h2>
+            <table id="expenses-table" class="data-table"></table>
+
+            <footer>Live‑linked to Google Sheets – refreshes every 5 minutes. <span id="last-updated"></span></footer>
+        </div>
+    </div>
+
+    <!-- ====== Scripts (PapaParse + live data loader) ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script>
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSYgITpr2AX21l4GtKHIIniRmvGDM1NYZYHwfM1QCxP1Z2tRQ3J4N8Ygb7Jp5HQ0z6R2-tT_CmVrR-x/pub?gid=480940362&single=true&output=csv";
+
+    async function loadData() {
+        try {
+            const res = await fetch(CSV_URL);
+            const text = await res.text();
+            const parsed = Papa.parse(text.trim()).data;
+
+            const donors = [], budget = [], expenses = [];
+            let section = null;
+            parsed.forEach(row => {
+                const name = (row[0] || '').trim();
+                const amountRaw = (row[1] || '').trim();
+                if (!name) return;
+
+                if (name.startsWith('🎯')) { section = 'donors'; return; }
+                if (name.startsWith('💰')) { section = 'budget'; return; }
+                if (name.startsWith('📊')) { section = 'expenses'; return; }
+
+                if (['NAME','AMOUNT','EXPENSES'].includes(name.toUpperCase())) return;
+
+                const amount = parseFloat(amountRaw.replace(/[,GHS\s]/g,'')) || 0;
+
+                if (section === 'donors') {
+                    donors.push({ name, amount });
+                } else if (section === 'budget') {
+                    budget.push({ name, amount });
+                } else if (section === 'expenses') {
+                    expenses.push({ name, amount });
+                }
+            });
+
+            /* ---------- KPI CALCULATIONS ---------- */
+            const totalBudget = budget.reduce((sum,b)=>sum+b.amount,0);
+            const fundsSecured = donors.reduce((sum,d)=>sum+d.amount,0);
+            const expensesTotal = expenses.reduce((sum,e)=>sum+e.amount,0);
+            const fundingGap = Math.max(totalBudget - fundsSecured,0);
+            const availableBalance = Math.max(fundsSecured - expensesTotal,0);
+            const pendingPayments = fundingGap; // Simple placeholder – adjust if you track differently
+
+            const pct = (val,total)=> total ? ((val/total)*100).toFixed(0) : 0;
+
+            /* ---------- Update KPI Elements ---------- */
+            document.getElementById('kpiTotalBudget').textContent = totalBudget.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('kpiFundsSecured').textContent = fundsSecured.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('kpiExpenses').textContent = expensesTotal.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('kpiGap').textContent = fundingGap.toLocaleString(undefined,{minimumFractionDigits:2});
+
+            document.getElementById('barSecured').style.width = pct(fundsSecured,totalBudget)+'%';
+            document.getElementById('barExpenses').style.width = pct(expensesTotal,totalBudget)+'%';
+            document.getElementById('barGap').style.width = pct(fundingGap,totalBudget)+'%';
+
+            document.getElementById('lblPercentSecured').textContent = pct(fundsSecured,totalBudget)+'%';
+            document.getElementById('lblPercentExpenses').textContent = pct(expensesTotal,totalBudget)+'%';
+            document.getElementById('lblPercentGap').textContent = pct(fundingGap,totalBudget)+'%';
+
+            /* ---------- Executive Summary ---------- */
+            document.getElementById('summaryTotal').textContent    = totalBudget.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('summarySecured').textContent  = fundsSecured.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('summaryPercent').textContent  = pct(fundsSecured,totalBudget)+'%';
+            document.getElementById('summaryExpenses').textContent = expensesTotal.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('summaryGap').textContent      = fundingGap.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('statAvailable').textContent   = availableBalance.toLocaleString(undefined,{minimumFractionDigits:2});
+            document.getElementById('statPending').textContent     = pendingPayments.toLocaleString(undefined,{minimumFractionDigits:2});
+
+            /* ---------- Render Tables ---------- */
+            function render(tableId,list,showTotal=true) {
+                const table = document.getElementById(tableId);
+                table.innerHTML = '';
+                let total = 0;
+                list.forEach(item => {
+                    const tr = document.createElement('tr');
+                    total += item.amount;
+                    tr.innerHTML = `<td>${item.name}</td><td>GHS ${item.amount.toLocaleString(undefined,{minimumFractionDigits:2})}</td>`;
+                    table.appendChild(tr);
+                });
+                if (showTotal) {
+                    const tr = document.createElement('tr');
+                    tr.classList.add('total-row');
+                    tr.innerHTML = `<td><strong>TOTAL</strong></td><td><strong>GHS ${total.toLocaleString(undefined,{minimumFractionDigits:2})}</strong></td>`;
+                    table.appendChild(tr);
+                }
+            }
+            render('donors-table',donors);
+            render('budget-table',budget);
+            render('expenses-table',expenses);
+
+            /* ---------- Timestamp ---------- */
+            document.getElementById('last-updated').textContent = ' – last refreshed ' + new Date().toLocaleString();
+        } catch(err) {
+            console.error('Data load error',err);
+            document.getElementById('last-updated').textContent = ' – Data load error';
+        }
+    }
+
+    loadData();
+    setInterval(loadData,5*60*1000); // refresh every 5 minutes
+    </script>
+</body>
+</html>
